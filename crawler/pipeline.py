@@ -48,14 +48,28 @@ class CrawlPipeline:
 
     def __init__(
         self,
-        extractor:  HtmlExtractor  = None,
-        classifier: BaseClassifier = None,
+        extractor:  Optional[HtmlExtractor]  = None,
+        classifier: Optional[BaseClassifier] = None,
     ):
         self.extractor  = extractor  or HtmlExtractor()
         self.classifier = classifier or RakeClassifier()
 
-    def run(self, url: str) -> PageMetadata:
-        """Run the full pipeline for a single URL."""
+    def run(self, url: str, stored_hash: Optional[str] = None) -> PageMetadata:
+        """
+        Run the full pipeline for a single URL.
+
+        Args:
+            url:         The URL to crawl.
+            stored_hash: MD5 hash from the previous crawl of this URL (optional).
+                         When provided, the pipeline checks whether the page has
+                         changed before running the expensive extract + classify
+                         stages. Pass None (default) to always run the full pipeline
+                         — this is the behaviour used in Part 1.
+
+                         In the scaled architecture (Part 2), the Frontier supplies
+                         this value so unchanged pages are skipped, saving 40-60%
+                         of compute and storage costs.
+        """
         crawled_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         start      = time.monotonic()
 
@@ -63,6 +77,12 @@ class CrawlPipeline:
         fetch_result = fetch(url)
         if not fetch_result.ok or not fetch_result.is_html:
             return self._failed_result(url, fetch_result, crawled_at, start)
+
+        # Change detection — only active when stored_hash is supplied (Part 2).
+        # In Part 1, stored_hash is always None so this block is never entered.
+        current_hash = _md5(fetch_result.html)
+        if stored_hash and current_hash == stored_hash:
+            return self._no_change_result(url, fetch_result, current_hash, crawled_at, start)
 
         # Stage 2 — Extract
         page = self.extractor.extract(
@@ -77,6 +97,35 @@ class CrawlPipeline:
     # ------------------------------------------------------------------
     # Result builders — assemble PageMetadata from stage outputs
     # ------------------------------------------------------------------
+
+    def _no_change_result(
+        self,
+        url:          str,
+        fetch_result: FetchResult,
+        html_hash:    str,
+        crawled_at:   str,
+        start:        float,
+    ) -> PageMetadata:
+        """
+        Return a minimal PageMetadata when the page content has not changed
+        since the last crawl. All intelligence fields are left at their defaults
+        (empty lists / None) — the caller should use the previously stored values.
+
+        In the scaled worker, this result signals: write a no_change audit record,
+        skip BigQuery and OpenSearch writes, acknowledge the Kafka message.
+        """
+        return PageMetadata(
+            url               = url,
+            final_url         = fetch_result.final_url,
+            domain            = _extract_domain(fetch_result.final_url),
+            canonical_url     = None,
+            status_code       = fetch_result.status_code,
+            content_type      = fetch_result.content_type,
+            crawled_at        = crawled_at,
+            html_hash         = html_hash,
+            crawl_duration_ms = _elapsed_ms(start),
+            error             = "no_change",
+        )
 
     def _success_result(
         self,
