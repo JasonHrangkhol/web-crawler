@@ -1,5 +1,25 @@
 # System Design: Operationalizing the Crawler at Billions of URLs
 
+## Table of Contents
+
+| # | Section | What it covers |
+|---|---|---|
+| — | [Executive Summary](#executive-summary) | What this document is and the core insight driving every decision |
+| 1 | [Input — Accepting Billions of URLs](#1-input--accepting-billions-of-urls) | MySQL table schema and S3 text file ingestion |
+| 2 | [Scale Requirements — The Numbers That Drive Design](#2-scale-requirements--the-numbers-that-drive-design) | Throughput, storage, compute, and monthly cost estimates |
+| 3 | [Architecture Overview](#3-architecture-overview) | End-to-end system diagram across all six layers |
+| 4 | [How It Works — Component by Component](#4-how-it-works--component-by-component) | URL Frontier, Kafka queue, crawler workers, Query API |
+| 5 | [Storage Design](#5-storage-design) | S3 (raw HTML), BigQuery (metadata), OpenSearch (search index) |
+| 6 | [Unified Data Schema](#6-unified-data-schema) | Full JSON schema with all fields, null-safe and versioned |
+| 7 | [SLOs and SLAs](#7-slos-and-slas) | Service level targets, error budget, and measurement approach |
+| 8 | [Monitoring, Alerting, and Key Metrics](#8-monitoring-alerting-and-key-metrics) | Pipeline metrics, API metrics, Grafana dashboards, runbooks |
+| 9 | [Reliability — Failure Modes and Recovery](#9-reliability--failure-modes-and-recovery) | Failure scenarios, recovery strategies, graceful degradation |
+| 10 | [Cost Optimization](#10-cost-optimization) | Five optimizations and their combined $12,300/month saving |
+| 11 | [Methods, Services, and Frameworks](#11-methods-services-and-frameworks) | Every technology choice with reason and rejected alternatives |
+| 12 | [Next Steps — Optimizations for Phase 2](#12-next-steps--optimizations-for-phase-2) | Six enhancements with business value and complexity |
+
+---
+
 ## Executive Summary
 
 Part 1 built a single-URL crawler — give it one URL, it returns structured metadata
