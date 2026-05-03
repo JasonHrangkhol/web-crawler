@@ -466,8 +466,6 @@ was used and what value it provided.
 | Tool | How it was used |
 |---|---|
 | **Cursor (Claude Sonnet)** | Primary development assistant throughout the assignment. Used for: code generation and review (`crawler/` package, `main.py`, `Dockerfile`), design document drafting and iteration, debugging Python and deployment issues, explaining architectural trade-offs. |
-| **Claude Code (Anthropic CLI)** | Used for iterative design document review — challenging assumptions in `scale_architecture.md` and this document, identifying missing reasoning (e.g. why the two-stage worker pipeline is needed, why SQS throughput comparison was misleading), rewriting sections to explain not just what was chosen but why alternatives were rejected. Surfaced the IP blocking cost model gap ($0.0000047 vs potential $0.005/URL) as a critical risk that needed explicit treatment in the POC gates. |
-| **GitHub Copilot** | Inline code completions during development of `extractor.py` and `classifier.py`. |
 
 ### What AI did and did not do
 
