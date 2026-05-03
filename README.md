@@ -7,10 +7,9 @@
 
 ## Live Demo
 
-| | |
-|---|---|
-| **API endpoint** | `https://web-crawler-api-production-f679.up.railway.app/crawl?url=<url>` |
-| **Interactive docs** | `https://web-crawler-api-production-f679.up.railway.app/docs` |
+**[Open Interactive Demo](https://web-crawler-api-production-f679.up.railway.app/docs)** — try any URL live in the browser.
+
+Base URL: `https://web-crawler-api-production-f679.up.railway.app`
 
 ---
 
