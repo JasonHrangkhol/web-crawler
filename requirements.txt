@@ -1,0 +1,6 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+requests==2.32.3
+beautifulsoup4==4.12.3
+rake-nltk==1.0.6
+nltk==3.9.1
