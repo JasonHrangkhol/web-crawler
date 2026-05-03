@@ -1,4 +1,4 @@
-# Part 2 — System Design: Operationalizing the Crawler at Billions of URLs
+# System Design: Operationalizing the Crawler at Billions of URLs
 
 ## Executive Summary
 
