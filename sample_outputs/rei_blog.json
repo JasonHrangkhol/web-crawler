@@ -1,0 +1,30 @@
+{
+  "url": "http://blog.rei.com/camp/how-to-introduce-your-indoorsy-friend-to-the-outdoors/",
+  "final_url": "http://blog.rei.com/camp/how-to-introduce-your-indoorsy-friend-to-the-outdoors/",
+  "domain": "blog.rei.com",
+  "canonical_url": null,
+  "crawled_at": "2026-05-03T18:50:30Z",
+  "html_hash": "7b9ed753015560c219c0253e42cc5c3b",
+  "status_code": 403,
+  "content_type": "text/html",
+  "crawl_duration_ms": 43,
+  "error": null,
+  "language": null,
+  "title": "Access Denied",
+  "meta_description": null,
+  "meta_keywords": [],
+  "og_title": null,
+  "og_type": null,
+  "og_image": null,
+  "published_date": null,
+  "h1_tags": [
+    "Access Denied"
+  ],
+  "h2_tags": [],
+  "word_count": 15,
+  "body_text_preview": "Access Denied You don't have permission to access \"http://blog.rei.com/camp/how-to-introduce-your-indoorsy-friend-to-the-outdoors/\" on this server. Reference #18.d24bd217.1777834231.3eff9a0d https://errors.edgesuite.net/18.d24bd217.1777834231.3eff9a0d",
+  "topics": [
+    "access denied access denied"
+  ],
+  "page_category": "Travel / Outdoors"
+}

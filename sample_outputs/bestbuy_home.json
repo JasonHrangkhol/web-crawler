@@ -1,0 +1,48 @@
+{
+  "url": "https://www.bestbuy.com",
+  "final_url": "https://www.bestbuy.com/",
+  "domain": "bestbuy.com",
+  "canonical_url": null,
+  "crawled_at": "2026-05-03T18:50:32Z",
+  "html_hash": "7c236d2a31f7d56e0d1eb6554c98b602",
+  "status_code": 200,
+  "content_type": "text/html",
+  "crawl_duration_ms": 8299,
+  "error": null,
+  "language": "en",
+  "title": "Best Buy International: Select your Country - Best Buy",
+  "meta_description": "Shop online at Best Buy in your country and language of choice. Best Buy provides online shopping in a number of countries and languages.",
+  "meta_keywords": [
+    "best buy international",
+    "best buy countries"
+  ],
+  "og_title": null,
+  "og_type": null,
+  "og_image": null,
+  "published_date": null,
+  "h1_tags": [
+    "Choose a country.",
+    "Choisir un pays :",
+    "Seleciona un pa\u00c3\u00ads."
+  ],
+  "h2_tags": [],
+  "word_count": 103,
+  "body_text_preview": "English Fran\u00c3\u00a7ais Espa\u00c3\u00b1ol Hello! Choose a country. Canada United States Shopping in the U.S.? International customers can shop on www.bestbuy.com and have orders shipped to any U.S. address or U.S. store. See More Details Bonjour! Choisir un pays : Canada United States Vous magasinez aux \u00c3\u0089.-U.? Les clients internationaux peuvent magasiner au www.bestbuy.com et faire livrer leurs commandes \u00c3\u00a0 n\u00e2\u0080\u0099importe quelle adresse ou n\u00e2\u0080\u0099importe quel magasin aux \u00c3\u0089tats-Unis. Voir les d\u00c3\u00a9tails \u00c2\u00a1Hola! Selec",
+  "topics": [
+    "best buy international",
+    "best buy countries",
+    "seleciona un pa\u00e3 \u00ad",
+    "best buy shop online",
+    "choisir un pays",
+    "best buy",
+    "select",
+    "number",
+    "languages",
+    "language",
+    "country",
+    "countries",
+    "choose",
+    "choice"
+  ],
+  "page_category": "E-Commerce / Product"
+}

@@ -62,8 +62,8 @@ Assignment/
 │   └── bestbuy_home.json
 │
 └── docs/
-    ├── part2_design.md        System design for crawling billions of URLs
-    └── part3_execution.md     POC plan, blockers, estimates, release plan
+    ├── scale_architecture.md  System design for crawling billions of URLs
+    └── engineering_plan.md    POC plan, blockers, estimates, release plan
 ```
 
 ---
@@ -212,6 +212,8 @@ gcloud run deploy brightedge-crawler \
 
 | Tool | How it was used |
 |---|---|
-| **Cursor (Claude Sonnet)** | Scaffolded project structure, design pattern guidance, documentation drafting |
+| **Cursor (Claude Sonnet)** | Primary assistant throughout the assignment — code generation and review, design document drafting, debugging, and explaining architectural trade-offs |
+| **GitHub Copilot** | Inline code completions during development of `extractor.py` and `classifier.py` |
 
 All AI-generated code was reviewed, understood, and tested before submission.
+A full account of what AI did and did not do is in [`docs/engineering_plan.md`](./docs/engineering_plan.md#8-ai-tools-used).
