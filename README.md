@@ -9,10 +9,8 @@
 
 | | |
 |---|---|
-| **API endpoint** | `https://<your-service>.run.app/crawl?url=<url>` |
-| **Interactive docs** | `https://<your-service>.run.app/docs` |
-
-> Replace `<your-service>` with the deployed service URL after deployment.
+| **API endpoint** | `https://web-crawler-api-production-f679.up.railway.app/crawl?url=<url>` |
+| **Interactive docs** | `https://web-crawler-api-production-f679.up.railway.app/docs` |
 
 ---
 
