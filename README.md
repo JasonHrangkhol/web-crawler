@@ -95,6 +95,8 @@ python scripts/run_demo.py
 
 Crawls all 5 test URLs and saves the JSON outputs to `sample_outputs/`.
 
+> **Note on Amazon:** Amazon's bot detection blocks cloud server IPs over repeated requests. The live demo may return an empty result for the Amazon URL — the saved output in `sample_outputs/amazon_toaster.json` reflects a successful crawl from the initial run. This is the known IP blocking risk documented in `docs/engineering_plan.md` under Blocker 1.
+
 ---
 
 ## Run Tests
