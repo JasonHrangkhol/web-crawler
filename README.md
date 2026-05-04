@@ -11,6 +11,8 @@
 
 Base URL: `https://web-crawler-api-production-f679.up.railway.app`
 
+> Deployed on Railway for the POC — chosen for speed of setup.
+
 ---
 
 ## What This Does
